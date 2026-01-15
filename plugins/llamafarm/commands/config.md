@@ -2,25 +2,25 @@
 description: Generate or modify LlamaFarm configuration from natural language description
 ---
 
-# /config - LlamaFarm Configuration Generator
+# /llamafarm:config - LlamaFarm Configuration Generator
 
 Generate or modify LlamaFarm configurations from natural language descriptions.
 
 ## Usage
 
 ```
-/config <description of project or changes>
+/llamafarm:config <description of project or changes>
 ```
 
 ### Examples
 
 ```
-/config I want to chat with FDA correspondence PDFs using llama3.1
-/config Add a second database for archived documents with hybrid search
-/config Change the chunking strategy to semantic with 1000 char chunks
-/config I have markdown docs and want keyword extraction
-/config Switch from Ollama to Universal Runtime
-/config Add entity extraction for organizations and dates
+/llamafarm:config I want to chat with FDA correspondence PDFs using llama3.1
+/llamafarm:config Add a second database for archived documents with hybrid search
+/llamafarm:config Change the chunking strategy to semantic with 1000 char chunks
+/llamafarm:config I have markdown docs and want keyword extraction
+/llamafarm:config Switch from Ollama to Universal Runtime
+/llamafarm:config Add entity extraction for organizations and dates
 ```
 
 ## What This Command Does
@@ -28,12 +28,12 @@ Generate or modify LlamaFarm configurations from natural language descriptions.
 1. **Parses user intent** - Understands what kind of project or change is needed
 2. **Maps to example patterns** - Uses internalized LlamaFarm examples
 3. **Generates valid config** - Creates schema-compliant YAML
-4. **Validates output** - Runs `/validate` internally
+4. **Validates output** - Runs `/llamafarm:validate` internally
 5. **Provides CLI guidance** - Shows any required CLI commands
 
 ## Implementation
 
-When the user runs `/config <description>`, follow these steps:
+When the user runs `/llamafarm:config <description>`, follow these steps:
 
 ### Step 1: Analyze Intent
 

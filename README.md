@@ -31,34 +31,34 @@ cp -r claude-code-plugin/plugins/llamafarm ~/.claude/plugins/
 
 | Command | Description |
 |---------|-------------|
-| `/start` | Start LlamaFarm services |
-| `/stop` | Stop services gracefully |
-| `/status` | Check service health |
-| `/logs` | View service logs |
+| `/llamafarm:start` | Start LlamaFarm services |
+| `/llamafarm:stop` | Stop services gracefully |
+| `/llamafarm:status` | Check service health |
+| `/llamafarm:logs` | View service logs |
 
 ### Configuration
 
 | Command | Description |
 |---------|-------------|
-| `/config` | Generate config from natural language |
-| `/validate` | Validate configuration against schema |
-| `/example` | Browse and scaffold from examples |
+| `/llamafarm:config` | Generate config from natural language |
+| `/llamafarm:validate` | Validate configuration against schema |
+| `/llamafarm:example` | Browse and scaffold from examples |
 
 ### Usage Examples
 
 ```bash
 # Generate a new configuration
-/config I want to analyze FDA correspondence PDFs using llama3.1
+/llamafarm:config I want to analyze FDA correspondence PDFs using llama3.1
 
 # Scaffold from an example
-/example fda_rag
+/llamafarm:example fda_rag
 
 # Start services and check status
-/start
-/status
+/llamafarm:start
+/llamafarm:status
 
 # Validate your configuration
-/validate llamafarm.yaml
+/llamafarm:validate llamafarm.yaml
 ```
 
 ## Skills
@@ -130,11 +130,11 @@ A context-aware assistant that activates for LlamaFarm tasks:
 
 | Use Case | Configuration | Commands |
 |----------|---------------|----------|
-| **PDF Analysis** | llama3.1, semantic chunking, EntityExtractor | `/example fda_rag` |
-| **Documentation** | Smaller chunks, HeadingExtractor, MarkdownParser | `/example quick_rag` |
-| **Large Documents** | Hierarchy extraction, larger overlap | `/example gov_rag` |
-| **Code Analysis** | Code-aware chunking, PatternExtractor | `/config code analysis` |
-| **Mixed Formats** | HybridUniversalStrategy, multiple parsers | `/config mixed documents` |
+| **PDF Analysis** | llama3.1, semantic chunking, EntityExtractor | `/llamafarm:example fda_rag` |
+| **Documentation** | Smaller chunks, HeadingExtractor, MarkdownParser | `/llamafarm:example quick_rag` |
+| **Large Documents** | Hierarchy extraction, larger overlap | `/llamafarm:example gov_rag` |
+| **Code Analysis** | Code-aware chunking, PatternExtractor | `/llamafarm:config code analysis` |
+| **Mixed Formats** | HybridUniversalStrategy, multiple parsers | `/llamafarm:config mixed documents` |
 
 ## Requirements
 
@@ -147,16 +147,16 @@ A context-aware assistant that activates for LlamaFarm tasks:
 
 ```bash
 # 1. Generate a configuration
-/config I want to chat with my markdown documentation
+/llamafarm:config I want to chat with my markdown documentation
 
 # 2. Validate the config
-/validate
+/llamafarm:validate
 
 # 3. Start services
-/start
+/llamafarm:start
 
 # 4. Check everything is running
-/status
+/llamafarm:status
 
 # 5. Create and process a dataset
 lf datasets create -s markdown_processor -b main_db docs

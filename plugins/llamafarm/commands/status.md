@@ -2,16 +2,16 @@
 description: Check LlamaFarm service health and component status
 ---
 
-# /status - Service Health Check
+# /llamafarm:status - Service Health Check
 
 Check the health and status of all LlamaFarm components.
 
 ## Usage
 
 ```
-/status                   # Full status report
-/status --json            # JSON output for scripting
-/status --component rag   # Check specific component
+/llamafarm:status                   # Full status report
+/llamafarm:status --json            # JSON output for scripting
+/llamafarm:status --component rag   # Check specific component
 ```
 
 ## What This Command Does
@@ -23,7 +23,7 @@ Check the health and status of all LlamaFarm components.
 
 ## Implementation
 
-When the user runs `/status`, follow these steps:
+When the user runs `/llamafarm:status`, follow these steps:
 
 ### Step 1: Check CLI and Services
 
@@ -147,7 +147,7 @@ Issues Detected:
    - Fix: ollama serve
 
 Recommendations:
-- Run /logs to see error details
+- Run /llamafarm:logs to see error details
 - Check debugging/service-issues skill for more help
 ```
 
@@ -182,6 +182,6 @@ lf services status --json
 
 ## Related Commands
 
-- `/start` - Start services
-- `/stop` - Stop services
-- `/logs` - View service logs
+- `/llamafarm:start` - Start services
+- `/llamafarm:stop` - Stop services
+- `/llamafarm:logs` - View service logs

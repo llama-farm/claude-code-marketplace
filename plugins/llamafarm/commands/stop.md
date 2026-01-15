@@ -2,15 +2,15 @@
 description: Stop LlamaFarm services gracefully
 ---
 
-# /stop - Stop LlamaFarm Services
+# /llamafarm:stop - Stop LlamaFarm Services
 
 Gracefully stop all running LlamaFarm services.
 
 ## Usage
 
 ```
-/stop                     # Stop all services
-/stop --force             # Force stop (SIGKILL)
+/llamafarm:stop                     # Stop all services
+/llamafarm:stop --force             # Force stop (SIGKILL)
 ```
 
 ## What This Command Does
@@ -22,7 +22,7 @@ Gracefully stop all running LlamaFarm services.
 
 ## Implementation
 
-When the user runs `/stop`, follow these steps:
+When the user runs `/llamafarm:stop`, follow these steps:
 
 ### Step 1: Check Current Status
 
@@ -68,7 +68,7 @@ Components stopped:
 - Server (port 8000)
 - RAG Worker
 
-To restart: /start or `lf start`
+To restart: /llamafarm:start or `lf start`
 ```
 
 ## Force Stop
@@ -86,7 +86,7 @@ Report:
 Services force-stopped.
 
 Note: Force stop may leave temporary files or incomplete tasks.
-Check /status to verify clean state.
+Check /llamafarm:status to verify clean state.
 ```
 
 ## Error Handling
@@ -98,8 +98,8 @@ If graceful stop times out:
 Services not responding to graceful shutdown.
 
 Options:
-1. Wait longer: /stop --timeout 60
-2. Force stop: /stop --force
+1. Wait longer: /llamafarm:stop --timeout 60
+2. Force stop: /llamafarm:stop --force
 3. Manual cleanup: pkill -9 -f llamafarm
 ```
 
@@ -114,5 +114,5 @@ Provide PIDs for manual cleanup if needed.
 
 ## Related Commands
 
-- `/start` - Start services
-- `/status` - Check service health
+- `/llamafarm:start` - Start services
+- `/llamafarm:status` - Check service health

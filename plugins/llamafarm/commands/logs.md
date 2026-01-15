@@ -2,18 +2,18 @@
 description: View LlamaFarm service logs with filtering
 ---
 
-# /logs - View Service Logs
+# /llamafarm:logs - View Service Logs
 
 View and filter logs from LlamaFarm services for debugging and monitoring.
 
 ## Usage
 
 ```
-/logs                     # Recent logs from all services
-/logs --service server    # Logs from specific service
-/logs --follow            # Stream logs in real-time
-/logs --errors            # Only show errors
-/logs --since 1h          # Logs from last hour
+/llamafarm:logs                     # Recent logs from all services
+/llamafarm:logs --service server    # Logs from specific service
+/llamafarm:logs --follow            # Stream logs in real-time
+/llamafarm:logs --errors            # Only show errors
+/llamafarm:logs --since 1h          # Logs from last hour
 ```
 
 ## What This Command Does
@@ -25,7 +25,7 @@ View and filter logs from LlamaFarm services for debugging and monitoring.
 
 ## Implementation
 
-When the user runs `/logs`, follow these steps:
+When the user runs `/llamafarm:logs`, follow these steps:
 
 ### Step 1: Determine Log Source
 
@@ -90,7 +90,7 @@ LlamaFarm Logs (last 50 lines)
 ### Server Logs
 
 ```
-/logs --service server
+/llamafarm:logs --service server
 ```
 
 Shows:
@@ -102,7 +102,7 @@ Shows:
 ### RAG Worker Logs
 
 ```
-/logs --service rag
+/llamafarm:logs --service rag
 ```
 
 Shows:
@@ -115,7 +115,7 @@ Shows:
 ### Celery Logs
 
 ```
-/logs --service celery
+/llamafarm:logs --service celery
 ```
 
 Shows:
@@ -147,7 +147,7 @@ Suggested fixes:
          use_ocr: true
 
 2. Or use dedicated OCR pipeline:
-   See /config for OCR-enabled configuration
+   See /llamafarm:config for OCR-enabled configuration
 ```
 
 ## Common Log Patterns
@@ -199,12 +199,12 @@ Suggested fixes:
 
 Filter by level:
 ```
-/logs --level ERROR    # Errors and above
-/logs --level WARNING  # Warnings and above
+/llamafarm:logs --level ERROR    # Errors and above
+/llamafarm:logs --level WARNING  # Warnings and above
 ```
 
 ## Related Commands
 
-- `/status` - Overall health check
-- `/start` - Start services
-- `/stop` - Stop services
+- `/llamafarm:status` - Overall health check
+- `/llamafarm:start` - Start services
+- `/llamafarm:stop` - Stop services

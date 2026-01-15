@@ -2,17 +2,17 @@
 description: Browse and scaffold from LlamaFarm example projects
 ---
 
-# /example - Example Project Scaffolding
+# /llamafarm:example - Example Project Scaffolding
 
 Browse available LlamaFarm examples and scaffold new projects from them.
 
 ## Usage
 
 ```
-/example                       # List all available examples
-/example quick_rag             # Scaffold from quick_rag example
-/example fda_rag --name myproj # Scaffold with custom name
-/example gov_rag --show        # Show example config without scaffolding
+/llamafarm:example                       # List all available examples
+/llamafarm:example quick_rag             # Scaffold from quick_rag example
+/llamafarm:example fda_rag --name myproj # Scaffold with custom name
+/llamafarm:example gov_rag --show        # Show example config without scaffolding
 ```
 
 ## What This Command Does
@@ -61,13 +61,13 @@ rag_pipeline
   Best for: Learning advanced RAG patterns
 
 Usage:
-  /example <name>           # Scaffold from example
-  /example <name> --show    # Preview config only
+  /llamafarm:example <name>           # Scaffold from example
+  /llamafarm:example <name> --show    # Preview config only
 ```
 
 ### Step 2: Show Example (--show flag)
 
-When user runs `/example quick_rag --show`:
+When user runs `/llamafarm:example quick_rag --show`:
 
 ```bash
 # Read the example's llamafarm.yaml
@@ -118,12 +118,12 @@ Files included:
   - files/neural_scaling.md
   - files/engineering_practices.md
 
-To scaffold: /example quick_rag
+To scaffold: /llamafarm:example quick_rag
 ```
 
 ### Step 3: Scaffold Project
 
-When user runs `/example quick_rag`:
+When user runs `/llamafarm:example quick_rag`:
 
 ```bash
 # Import example using CLI
@@ -170,7 +170,7 @@ Requirements:
 
 ### Step 4: Custom Project Name
 
-When user runs `/example fda_rag --name my_legal_project`:
+When user runs `/llamafarm:example fda_rag --name my_legal_project`:
 
 1. Copy example files to `./my_legal_project/`
 2. Update `name` field in `llamafarm.yaml`
@@ -277,6 +277,6 @@ When user runs `/example fda_rag --name my_legal_project`:
 
 ## Related Commands
 
-- `/config` - Generate custom configuration
-- `/validate` - Validate configuration
-- `/start` - Start services
+- `/llamafarm:config` - Generate custom configuration
+- `/llamafarm:validate` - Validate configuration
+- `/llamafarm:start` - Start services

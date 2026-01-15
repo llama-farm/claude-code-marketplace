@@ -2,16 +2,16 @@
 description: Start LlamaFarm services (server, RAG worker, optional Universal Runtime)
 ---
 
-# /start - Start LlamaFarm Services
+# /llamafarm:start - Start LlamaFarm Services
 
 Start the LlamaFarm backend services required for AI chat, RAG, and project management.
 
 ## Usage
 
 ```
-/start                    # Start all services
-/start --no-browser       # Start without opening Designer UI
-/start --runtime          # Also start Universal Runtime (ML/embeddings)
+/llamafarm:start                    # Start all services
+/llamafarm:start --no-browser       # Start without opening Designer UI
+/llamafarm:start --runtime          # Also start Universal Runtime (ML/embeddings)
 ```
 
 ## What This Command Does
@@ -23,7 +23,7 @@ Start the LlamaFarm backend services required for AI chat, RAG, and project mana
 
 ## Implementation
 
-When the user runs `/start`, follow these steps:
+When the user runs `/llamafarm:start`, follow these steps:
 
 ### Step 1: Check CLI Installation
 
@@ -101,7 +101,7 @@ MCP Server: http://localhost:8000/mcp (available for Claude Code)
 
 Next steps:
 - Create a project: lf init my-project
-- Or use /config to generate a configuration
+- Or use /llamafarm:config to generate a configuration
 ```
 
 ## Options
@@ -165,12 +165,12 @@ No llamafarm.yaml found in current directory.
 
 Options:
 1. Initialize a new project: lf init my-project
-2. Use /config to generate a configuration
+2. Use /llamafarm:config to generate a configuration
 3. Navigate to an existing LlamaFarm project directory
 ```
 
 ## Related Commands
 
-- `/stop` - Stop services
-- `/status` - Check service health
-- `/logs` - View service logs
+- `/llamafarm:stop` - Stop services
+- `/llamafarm:status` - Check service health
+- `/llamafarm:logs` - View service logs

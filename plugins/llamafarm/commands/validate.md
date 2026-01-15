@@ -2,15 +2,15 @@
 description: Validate llamafarm.yaml configuration against schema
 ---
 
-# /validate - LlamaFarm Configuration Validation
+# /llamafarm:validate - LlamaFarm Configuration Validation
 
 Validate a LlamaFarm configuration file against the schema and custom validators.
 
 ## Usage
 
 ```
-/validate                      # Validates ./llamafarm.yaml
-/validate path/to/config.yaml  # Validates specific file
+/llamafarm:validate                      # Validates ./llamafarm.yaml
+/llamafarm:validate path/to/config.yaml  # Validates specific file
 ```
 
 ## What This Command Does
@@ -22,7 +22,7 @@ Validate a LlamaFarm configuration file against the schema and custom validators
 
 ## Implementation
 
-When the user runs `/validate`, follow these steps:
+When the user runs `/llamafarm:validate`, follow these steps:
 
 ### Step 1: Find the Config File
 
