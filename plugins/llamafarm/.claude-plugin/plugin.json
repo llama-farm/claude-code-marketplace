@@ -1,0 +1,12 @@
+{
+  "name": "llamafarm",
+  "description": "Complete toolkit for LlamaFarm AI applications: configuration generation, REST API integration, MCP server development, debugging, and deployment",
+  "version": "2.0.0",
+  "author": {
+    "name": "LlamaFarm",
+    "url": "https://github.com/llama-farm"
+  },
+  "repository": "https://github.com/llama-farm/claude-code-plugin",
+  "license": "Apache-2.0",
+  "keywords": ["ai", "rag", "llm", "mcp", "vector-database", "embeddings", "llamafarm"]
+}

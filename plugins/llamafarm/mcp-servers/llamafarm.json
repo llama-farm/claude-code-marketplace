@@ -1,0 +1,59 @@
+{
+  "$schema": "https://anthropic.com/claude-code/mcp-server.schema.json",
+  "name": "llamafarm",
+  "description": "LlamaFarm project management, RAG queries, and AI chat. Provides tools for managing projects, querying vector databases, and interacting with AI models.",
+  "transport": "http",
+  "base_url": "http://localhost:8000/mcp",
+  "metadata": {
+    "documentation": "https://docs.llamafarm.dev",
+    "repository": "https://github.com/llama-farm/llamafarm",
+    "prerequisites": [
+      "LlamaFarm services must be running (use /start or `lf start`)",
+      "Default server runs on localhost:8000"
+    ]
+  },
+  "tools": {
+    "provided": [
+      {
+        "name": "list_projects",
+        "description": "List all LlamaFarm projects in a namespace"
+      },
+      {
+        "name": "create_project",
+        "description": "Create a new LlamaFarm project with configuration"
+      },
+      {
+        "name": "get_project",
+        "description": "Get project details and configuration"
+      },
+      {
+        "name": "update_project",
+        "description": "Update project settings"
+      },
+      {
+        "name": "delete_project",
+        "description": "Remove a project"
+      },
+      {
+        "name": "chat_completions",
+        "description": "Send messages to AI models with optional RAG context"
+      },
+      {
+        "name": "rag_query",
+        "description": "Query documents in vector databases"
+      },
+      {
+        "name": "list_models",
+        "description": "Get available AI models from configuration"
+      },
+      {
+        "name": "list_datasets",
+        "description": "List datasets in a project"
+      },
+      {
+        "name": "process_dataset",
+        "description": "Trigger dataset ingestion pipeline"
+      }
+    ]
+  }
+}
