@@ -6,7 +6,7 @@
     "name": "LlamaFarm",
     "url": "https://github.com/llama-farm"
   },
-  "repository": "https://github.com/llama-farm/claude-code-plugin",
+  "repository": "https://github.com/llama-farm/claude-code-marketplace",
   "license": "Apache-2.0",
   "keywords": ["ai", "rag", "llm", "mcp", "vector-database", "embeddings", "llamafarm"]
 }

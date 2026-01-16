@@ -13,7 +13,7 @@ The comprehensive Claude Code plugin for building LlamaFarm RAG and agentic AI a
 
 ```bash
 # Add the marketplace
-/plugin marketplace add llama-farm/claude-code-plugin
+/plugin marketplace add llama-farm/claude-code-marketplace
 
 # Install the plugin
 /plugin install llamafarm
@@ -21,8 +21,8 @@ The comprehensive Claude Code plugin for building LlamaFarm RAG and agentic AI a
 
 Or clone manually:
 ```bash
-git clone https://github.com/llama-farm/claude-code-plugin.git
-cp -r claude-code-plugin/plugins/llamafarm ~/.claude/plugins/
+git clone https://github.com/llama-farm/claude-code-marketplace.git
+cp -r claude-code-marketplace/plugins/llamafarm ~/.claude/plugins/
 ```
 
 ## Commands
