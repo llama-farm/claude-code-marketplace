@@ -84,7 +84,7 @@ import requests
 
 def query_rag(query, database="main_db", top_k=10, project="my-project"):
     response = requests.post(
-        f"http://localhost:8000/v1/projects/default/{project}/rag/query",
+        f"http://localhost:14345/v1/projects/default/{project}/rag/query",
         json={
             "query": query,
             "database": database,
@@ -233,7 +233,7 @@ Filter chunks by metadata fields:
 ```python
 def query_by_source(query, source_pattern, project="my-project"):
     response = requests.post(
-        f"http://localhost:8000/v1/projects/default/{project}/rag/query",
+        f"http://localhost:14345/v1/projects/default/{project}/rag/query",
         json={
             "query": query,
             "filters": {
@@ -285,7 +285,7 @@ GET /v1/projects/{namespace}/{project}/rag/health
 ```python
 def check_rag_health(project="my-project"):
     response = requests.get(
-        f"http://localhost:8000/v1/projects/default/{project}/rag/health"
+        f"http://localhost:14345/v1/projects/default/{project}/rag/health"
     )
     health = response.json()
 
@@ -339,7 +339,7 @@ def batch_query(queries, database="main_db", project="my-project"):
     results = []
     for query in queries:
         result = requests.post(
-            f"http://localhost:8000/v1/projects/default/{project}/rag/query",
+            f"http://localhost:14345/v1/projects/default/{project}/rag/query",
             json={"query": query, "database": database, "top_k": 5}
         ).json()
         results.append({
@@ -363,7 +363,7 @@ results = batch_query(queries)
 def get_context_for_llm(query, max_tokens=2000, project="my-project"):
     """Retrieve chunks and format as context for LLM."""
     results = requests.post(
-        f"http://localhost:8000/v1/projects/default/{project}/rag/query",
+        f"http://localhost:14345/v1/projects/default/{project}/rag/query",
         json={"query": query, "top_k": 10}
     ).json()
 
@@ -394,7 +394,7 @@ def query_multiple_databases(query, databases, project="my-project"):
 
     for db in databases:
         results = requests.post(
-            f"http://localhost:8000/v1/projects/default/{project}/rag/query",
+            f"http://localhost:14345/v1/projects/default/{project}/rag/query",
             json={"query": query, "database": db, "top_k": 5}
         ).json()
 
@@ -420,7 +420,7 @@ results = query_multiple_databases(
 def safe_query(query, project="my-project"):
     try:
         response = requests.post(
-            f"http://localhost:8000/v1/projects/default/{project}/rag/query",
+            f"http://localhost:14345/v1/projects/default/{project}/rag/query",
             json={"query": query},
             timeout=30
         )

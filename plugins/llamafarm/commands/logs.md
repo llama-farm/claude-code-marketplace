@@ -71,7 +71,7 @@ lf services logs --since "1 hour ago"
 LlamaFarm Logs (last 50 lines)
 ==============================
 
-[2024-01-14 10:23:45] INFO  [server] Started on http://localhost:8000
+[2024-01-14 10:23:45] INFO  [server] Started on http://localhost:14345
 [2024-01-14 10:23:46] INFO  [celery] Worker ready, consuming from queue
 [2024-01-14 10:25:12] INFO  [rag] Processing dataset: research_papers
 [2024-01-14 10:25:15] INFO  [rag] Parsed 5 documents, 127 chunks created

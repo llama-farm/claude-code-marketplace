@@ -17,7 +17,7 @@ Load this skill when the user:
 
 ## API Overview
 
-LlamaFarm exposes an **OpenAI-compatible REST API** at `http://localhost:8000/v1`.
+LlamaFarm exposes an **OpenAI-compatible REST API** at `http://localhost:14345/v1`.
 
 | Endpoint Group | Purpose |
 |---------------|---------|
@@ -33,13 +33,13 @@ LlamaFarm exposes an **OpenAI-compatible REST API** at `http://localhost:8000/v1
 ### Check Server Health
 
 ```bash
-curl http://localhost:8000/health
+curl http://localhost:14345/health
 ```
 
 ### Chat with RAG
 
 ```bash
-curl -X POST http://localhost:8000/v1/projects/default/my-project/chat/completions \
+curl -X POST http://localhost:14345/v1/projects/default/my-project/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "messages": [{"role": "user", "content": "What is in my documents?"}],
@@ -50,7 +50,7 @@ curl -X POST http://localhost:8000/v1/projects/default/my-project/chat/completio
 ### Query Vector Database
 
 ```bash
-curl -X POST http://localhost:8000/v1/projects/default/my-project/rag/query \
+curl -X POST http://localhost:14345/v1/projects/default/my-project/rag/query \
   -H "Content-Type: application/json" \
   -d '{
     "query": "neural scaling laws",
@@ -67,7 +67,7 @@ The chat endpoint is compatible with OpenAI's API format:
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="http://localhost:8000/v1/projects/default/my-project",
+    base_url="http://localhost:14345/v1/projects/default/my-project",
     api_key="not-needed"  # LlamaFarm doesn't require API key by default
 )
 
@@ -97,7 +97,7 @@ import requests
 
 def chat(message, project="my-project", namespace="default"):
     response = requests.post(
-        f"http://localhost:8000/v1/projects/{namespace}/{project}/chat/completions",
+        f"http://localhost:14345/v1/projects/{namespace}/{project}/chat/completions",
         json={
             "messages": [{"role": "user", "content": message}],
             "rag": True
@@ -118,7 +118,7 @@ def upload_documents(files, dataset, project="my-project"):
     for file_path in files:
         with open(file_path, "rb") as f:
             requests.post(
-                f"http://localhost:8000/v1/projects/default/{project}/datasets/{dataset}/data",
+                f"http://localhost:14345/v1/projects/default/{project}/datasets/{dataset}/data",
                 files={"file": f}
             )
 ```
@@ -130,7 +130,7 @@ import requests
 
 def stream_chat(message, project="my-project"):
     response = requests.post(
-        f"http://localhost:8000/v1/projects/default/{project}/chat/completions",
+        f"http://localhost:14345/v1/projects/default/{project}/chat/completions",
         json={
             "messages": [{"role": "user", "content": message}],
             "stream": True

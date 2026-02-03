@@ -35,7 +35,7 @@ lf services status
 ### Step 2: Check Health Endpoint
 
 ```bash
-curl -s http://localhost:8000/health | jq .
+curl -s http://localhost:14345/health | jq .
 ```
 
 Expected healthy response:
@@ -76,9 +76,9 @@ LlamaFarm Status Report
 Overall: HEALTHY
 
 Services:
-  Server:     Running (http://localhost:8000)
+  Server:     Running (http://localhost:14345)
   RAG Worker: Running (Celery)
-  MCP Server: Available (http://localhost:8000/mcp)
+  MCP Server: Available (http://localhost:14345/mcp)
 
 Current Project: my-project (namespace: default)
 
@@ -163,9 +163,9 @@ lf services status --json
 {
   "overall": "healthy",
   "services": {
-    "server": {"status": "healthy", "url": "http://localhost:8000"},
+    "server": {"status": "healthy", "url": "http://localhost:14345"},
     "worker": {"status": "healthy", "queue_length": 0},
-    "mcp": {"status": "healthy", "url": "http://localhost:8000/mcp"}
+    "mcp": {"status": "healthy", "url": "http://localhost:14345/mcp"}
   },
   "project": {
     "name": "my-project",

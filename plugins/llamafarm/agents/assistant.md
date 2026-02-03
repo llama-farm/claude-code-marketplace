@@ -189,7 +189,7 @@ LlamaFarm has an OpenAI-compatible REST API. Here's how to integrate:
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="http://localhost:8000/v1/projects/default/my-project",
+    base_url="http://localhost:14345/v1/projects/default/my-project",
     api_key="not-needed"
 )
 
@@ -204,7 +204,7 @@ response = client.chat.completions.create(
 import requests
 
 response = requests.post(
-    "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+    "http://localhost:14345/v1/projects/default/my-project/chat/completions",
     json={
         "messages": [{"role": "user", "content": "Hello!"}],
         "rag": True  # Enable RAG context

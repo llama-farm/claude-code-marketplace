@@ -65,13 +65,13 @@ lf chat --model expert "Complex analysis needed"
 ```python
 # Use default model
 response = requests.post(
-    "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+    "http://localhost:14345/v1/projects/default/my-project/chat/completions",
     json={"messages": [{"role": "user", "content": "Hello"}]}
 )
 
 # Use specific model
 response = requests.post(
-    "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+    "http://localhost:14345/v1/projects/default/my-project/chat/completions",
     json={
         "messages": [{"role": "user", "content": "Complex question"}],
         "model": "expert"
@@ -280,7 +280,7 @@ runtime:
 - name: vllm-model
   provider: openai
   model: mistral-7b-instruct
-  base_url: http://localhost:8000/v1
+  base_url: http://localhost:14345/v1
   api_key: not-needed
   model_api_parameters:
     temperature: 0.7

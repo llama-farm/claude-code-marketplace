@@ -150,7 +150,7 @@ mcp:
   servers:
     - name: llamafarm
       transport: http
-      base_url: http://localhost:8000/mcp
+      base_url: http://localhost:14345/mcp
 ```
 
 **Authenticated Remote API:**

@@ -5,7 +5,7 @@ Complete endpoint reference for the LlamaFarm REST API.
 ## Base URL
 
 ```
-http://localhost:8000/v1
+http://localhost:14345/v1
 ```
 
 All project-specific endpoints use the pattern:
@@ -66,7 +66,7 @@ GET /v1/projects/{namespace}
 
 **Example:**
 ```bash
-curl http://localhost:8000/v1/projects/default
+curl http://localhost:14345/v1/projects/default
 ```
 
 **Response:**
@@ -350,7 +350,7 @@ Content-Type: multipart/form-data
 **Example:**
 ```bash
 curl -X POST \
-  "http://localhost:8000/v1/projects/default/my-project/datasets/research/data" \
+  "http://localhost:14345/v1/projects/default/my-project/datasets/research/data" \
   -F "file=@document.pdf"
 ```
 
@@ -455,7 +455,7 @@ LlamaFarm exposes its API as an MCP server. Connect from Claude Desktop or other
   "mcpServers": {
     "llamafarm": {
       "transport": "http",
-      "url": "http://localhost:8000/mcp"
+      "url": "http://localhost:14345/mcp"
     }
   }
 }

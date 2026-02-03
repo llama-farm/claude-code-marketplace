@@ -3,13 +3,13 @@
   "name": "llamafarm",
   "description": "LlamaFarm project management, RAG queries, and AI chat. Provides tools for managing projects, querying vector databases, and interacting with AI models.",
   "transport": "http",
-  "base_url": "http://localhost:8000/mcp",
+  "base_url": "http://localhost:14345/mcp",
   "metadata": {
     "documentation": "https://docs.llamafarm.dev",
     "repository": "https://github.com/llama-farm/llamafarm",
     "prerequisites": [
       "LlamaFarm services must be running (use /start or `lf start`)",
-      "Default server runs on localhost:8000"
+      "Default server runs on localhost:14345"
     ]
   },
   "tools": {

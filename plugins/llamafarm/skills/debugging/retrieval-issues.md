@@ -294,7 +294,7 @@ import requests
 
 def test_retrieval(query, expected_terms):
     response = requests.post(
-        "http://localhost:8000/v1/projects/default/my-project/rag/query",
+        "http://localhost:14345/v1/projects/default/my-project/rag/query",
         json={"query": query, "top_k": 10}
     )
     chunks = response.json()["chunks"]

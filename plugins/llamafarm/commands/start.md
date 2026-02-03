@@ -66,7 +66,7 @@ This command:
 Poll the health endpoint until ready (up to 30 seconds):
 
 ```bash
-curl -s http://localhost:8000/health | jq .
+curl -s http://localhost:14345/health | jq .
 ```
 
 Expected response:
@@ -89,15 +89,15 @@ LlamaFarm Services Started
 ==========================
 
 Status: Running
-Server: http://localhost:8000
-Designer UI: http://localhost:8000 (opened in browser)
-API Docs: http://localhost:8000/docs
+Server: http://localhost:14345
+Designer UI: http://localhost:14345 (opened in browser)
+API Docs: http://localhost:14345/docs
 
 Components:
 - Server: healthy
 - RAG Worker: healthy
 
-MCP Server: http://localhost:8000/mcp (available for Claude Code)
+MCP Server: http://localhost:14345/mcp (available for Claude Code)
 
 Next steps:
 - Create a project: lf init my-project

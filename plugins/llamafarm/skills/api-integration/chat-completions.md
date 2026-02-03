@@ -16,7 +16,7 @@ LlamaFarm's chat endpoint is compatible with the OpenAI Python SDK:
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="http://localhost:8000/v1/projects/default/my-project",
+    base_url="http://localhost:14345/v1/projects/default/my-project",
     api_key="not-required"
 )
 
@@ -71,7 +71,7 @@ print(response.choices[0].message.content)
 import requests
 
 response = requests.post(
-    "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+    "http://localhost:14345/v1/projects/default/my-project/chat/completions",
     json={
         "messages": [
             {"role": "user", "content": "What is machine learning?"}
@@ -86,7 +86,7 @@ print(response.json()["choices"][0]["message"]["content"])
 
 ```python
 response = requests.post(
-    "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+    "http://localhost:14345/v1/projects/default/my-project/chat/completions",
     json={
         "messages": [
             {"role": "user", "content": "What do my documents say about scaling laws?"}
@@ -104,7 +104,7 @@ session_id = "user-123-session"
 
 # First message
 response1 = requests.post(
-    "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+    "http://localhost:14345/v1/projects/default/my-project/chat/completions",
     json={
         "messages": [
             {"role": "user", "content": "Tell me about neural networks."}
@@ -115,7 +115,7 @@ response1 = requests.post(
 
 # Follow-up (history preserved)
 response2 = requests.post(
-    "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+    "http://localhost:14345/v1/projects/default/my-project/chat/completions",
     json={
         "messages": [
             {"role": "user", "content": "How do they learn?"}
@@ -131,7 +131,7 @@ response2 = requests.post(
 import requests
 
 response = requests.post(
-    "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+    "http://localhost:14345/v1/projects/default/my-project/chat/completions",
     json={
         "messages": [{"role": "user", "content": "Write a poem."}],
         "stream": True
@@ -156,7 +156,7 @@ for line in response.iter_lines():
 ```python
 # Use the fast model for quick responses
 response = requests.post(
-    "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+    "http://localhost:14345/v1/projects/default/my-project/chat/completions",
     json={
         "messages": [{"role": "user", "content": "Quick question"}],
         "model": "fast"
@@ -165,7 +165,7 @@ response = requests.post(
 
 # Use the default (more capable) model for complex tasks
 response = requests.post(
-    "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+    "http://localhost:14345/v1/projects/default/my-project/chat/completions",
     json={
         "messages": [{"role": "user", "content": "Analyze this data..."}],
         "model": "default",
@@ -249,7 +249,7 @@ import requests
 
 try:
     response = requests.post(
-        "http://localhost:8000/v1/projects/default/my-project/chat/completions",
+        "http://localhost:14345/v1/projects/default/my-project/chat/completions",
         json={"messages": [{"role": "user", "content": "Hello"}]},
         timeout=60
     )

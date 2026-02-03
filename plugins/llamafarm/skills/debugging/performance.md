@@ -56,7 +56,7 @@ runtime:
 ```python
 # Stream responses for perceived speed
 response = requests.post(
-    "http://localhost:8000/v1/chat/completions",
+    "http://localhost:14345/v1/chat/completions",
     json={"messages": [...], "stream": True},
     stream=True
 )

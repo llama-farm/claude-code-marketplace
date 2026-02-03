@@ -27,7 +27,7 @@ lf services status
 lf rag health
 
 # API health endpoint
-curl http://localhost:8000/health
+curl http://localhost:14345/health
 ```
 
 ### Common Issues Quick Reference
@@ -57,7 +57,7 @@ For detailed troubleshooting:
 lf services status
 
 # Individual components
-curl http://localhost:8000/health | jq .
+curl http://localhost:14345/health | jq .
 
 # Check ports
 lsof -i :8000
@@ -132,7 +132,7 @@ Request issues:
 **Diagnostic:**
 ```bash
 # Check specific endpoint
-curl -v http://localhost:8000/v1/projects/default/my-project
+curl -v http://localhost:14345/v1/projects/default/my-project
 ```
 
 ### 3. Model Errors
@@ -193,7 +193,7 @@ Look for:
 Test each component:
 ```bash
 # Server
-curl http://localhost:8000/health
+curl http://localhost:14345/health
 
 # Model
 ollama run llama3.1:8b "test"

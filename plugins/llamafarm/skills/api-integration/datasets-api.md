@@ -50,7 +50,7 @@ import requests
 
 def create_dataset(name, database, strategy, project="my-project"):
     response = requests.post(
-        f"http://localhost:8000/v1/projects/default/{project}/datasets",
+        f"http://localhost:14345/v1/projects/default/{project}/datasets",
         json={
             "name": name,
             "database": database,
@@ -79,7 +79,7 @@ Content-Type: multipart/form-data
 **curl Example:**
 ```bash
 curl -X POST \
-  "http://localhost:8000/v1/projects/default/my-project/datasets/papers/data" \
+  "http://localhost:14345/v1/projects/default/my-project/datasets/papers/data" \
   -F "file=@research_paper.pdf"
 ```
 
@@ -88,7 +88,7 @@ curl -X POST \
 def upload_file(dataset, file_path, project="my-project"):
     with open(file_path, "rb") as f:
         response = requests.post(
-            f"http://localhost:8000/v1/projects/default/{project}/datasets/{dataset}/data",
+            f"http://localhost:14345/v1/projects/default/{project}/datasets/{dataset}/data",
             files={"file": f}
         )
     response.raise_for_status()
@@ -146,7 +146,7 @@ Content-Type: application/json
 ```python
 def process_dataset(dataset, project="my-project"):
     response = requests.post(
-        f"http://localhost:8000/v1/projects/default/{project}/datasets/{dataset}/actions",
+        f"http://localhost:14345/v1/projects/default/{project}/datasets/{dataset}/actions",
         json={"action": "process"}
     )
     response.raise_for_status()
@@ -197,7 +197,7 @@ def wait_for_processing(dataset, project="my-project", timeout=600):
 
     while time.time() - start_time < timeout:
         response = requests.get(
-            f"http://localhost:8000/v1/projects/default/{project}/datasets/{dataset}/status"
+            f"http://localhost:14345/v1/projects/default/{project}/datasets/{dataset}/status"
         )
         status = response.json()
 
@@ -233,7 +233,7 @@ from pathlib import Path
 import time
 
 class LlamaFarmClient:
-    def __init__(self, base_url="http://localhost:8000", namespace="default", project="my-project"):
+    def __init__(self, base_url="http://localhost:14345", namespace="default", project="my-project"):
         self.base_url = f"{base_url}/v1/projects/{namespace}/{project}"
 
     def create_dataset(self, name, database, strategy):
@@ -351,7 +351,7 @@ DELETE /v1/projects/{namespace}/{project}/datasets/{dataset}
 ```python
 def delete_dataset(dataset, delete_vectors=True, project="my-project"):
     response = requests.delete(
-        f"http://localhost:8000/v1/projects/default/{project}/datasets/{dataset}",
+        f"http://localhost:14345/v1/projects/default/{project}/datasets/{dataset}",
         params={"delete_vectors": delete_vectors}
     )
     response.raise_for_status()
@@ -366,7 +366,7 @@ def safe_upload(dataset, file_path, project="my-project"):
     try:
         with open(file_path, "rb") as f:
             response = requests.post(
-                f"http://localhost:8000/v1/projects/default/{project}/datasets/{dataset}/data",
+                f"http://localhost:14345/v1/projects/default/{project}/datasets/{dataset}/data",
                 files={"file": f},
                 timeout=30
             )

@@ -231,7 +231,7 @@ pip install llamafarm[ml]
 ### API Health
 
 ```bash
-curl http://localhost:8000/health | jq .
+curl http://localhost:14345/health | jq .
 ```
 
 Expected:
@@ -249,7 +249,7 @@ Expected:
 
 | Component | Check Command | Expected |
 |-----------|---------------|----------|
-| Server | `curl http://localhost:8000/health` | 200 OK |
+| Server | `curl http://localhost:14345/health` | 200 OK |
 | Ollama | `curl http://localhost:11434/api/tags` | JSON with models |
 | Runtime | `curl http://localhost:11540/health` | 200 OK |
 | Celery | `lf services status` | "worker: running" |
