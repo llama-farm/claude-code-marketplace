@@ -6,9 +6,19 @@ description: Example projects and patterns for LlamaFarm. Reference for scaffold
 
 Reference for LlamaFarm example projects and their patterns.
 
+## Command Entry Point
+
+```
+/llamafarm:example                       # List all available examples
+/llamafarm:example quick_rag             # Scaffold from quick_rag example
+/llamafarm:example fda_rag --name myproj # Scaffold with custom name
+/llamafarm:example gov_rag --show        # Show example config without scaffolding
+```
+
 ## When to Load
 
 Load this skill when:
+- User runs `/llamafarm:example` command
 - User asks about example projects
 - User wants to scaffold from examples
 - User needs working configuration references
@@ -24,6 +34,115 @@ Load this skill when:
 | `ocr_and_document` | Scanned document OCR | Advanced |
 | `rag_pipeline` | Multi-database, hybrid search | Advanced |
 
+## Implementation
+
+### Step 1: List Available Examples (no arguments)
+
+```
+Available LlamaFarm Examples
+============================
+
+quick_rag
+  Minimal RAG setup for getting started quickly.
+  Documents: 2 markdown files about AI/ML
+  Features: Basic similarity search, Ollama integration
+  Best for: Learning LlamaFarm basics
+
+fda_rag
+  FDA regulatory document analysis.
+  Documents: FDA correspondence letters (PDFs)
+  Features: Entity extraction, semantic chunking, citation tracking
+  Best for: Regulatory/legal document analysis
+
+gov_rag
+  Government and municipal document processing.
+  Documents: City ordinances, planning documents
+  Features: Large document handling, hierarchy extraction
+  Best for: Large complex PDFs, municipal docs
+
+ocr_and_document
+  Document OCR and image text extraction.
+  Documents: Scanned PDFs, images with text
+  Features: OCR pipeline, form parsing, document extraction
+  Best for: Scanned documents, image-based PDFs
+
+rag_pipeline
+  Advanced RAG configuration showcase.
+  Documents: Mixed format technical docs
+  Features: Multiple databases, reranking, hybrid search
+  Best for: Learning advanced RAG patterns
+
+Usage:
+  /llamafarm:example <name>           # Scaffold from example
+  /llamafarm:example <name> --show    # Preview config only
+```
+
+### Step 2: Show Example (--show flag)
+
+When user runs `/llamafarm:example quick_rag --show`:
+
+```bash
+# Read the example's llamafarm.yaml
+cat ~/workspace/pivot/llamafarm/examples/quick_rag/llamafarm.yaml
+```
+
+Present the configuration with annotations explaining key choices.
+
+### Step 3: Scaffold Project
+
+When user runs `/llamafarm:example quick_rag`:
+
+```bash
+# Import example using CLI
+lf examples import quick_rag --name quick_rag
+
+# Or manually copy files
+mkdir -p ./quick_rag
+cp -r ~/workspace/pivot/llamafarm/examples/quick_rag/* ./quick_rag/
+cd ./quick_rag
+```
+
+Report results:
+
+```
+Project Scaffolded: quick_rag
+=============================
+
+Created in: ./quick_rag/
+
+Files:
+  llamafarm.yaml    - Project configuration
+  files/            - Sample documents
+  README.md         - Example documentation
+
+Next Steps:
+
+1. Navigate to project:
+   cd quick_rag
+
+2. Start services:
+   lf start
+
+3. Create and process dataset:
+   lf datasets create -s markdown_processor -b main_db research
+   lf datasets upload research ./files/*
+   lf datasets process research
+
+4. Chat with your documents:
+   lf chat "What are neural scaling laws?"
+
+Requirements:
+  - Ollama with llama3.1:8b: ollama pull llama3.1:8b
+```
+
+### Step 4: Custom Project Name
+
+When user runs `/llamafarm:example fda_rag --name my_legal_project`:
+
+1. Copy example files to `./my_legal_project/`
+2. Update `name` field in `llamafarm.yaml`
+3. Report new project location
+
 ## Progressive Disclosure
 
 For specific example patterns, load:
@@ -31,9 +150,7 @@ For specific example patterns, load:
 - `fda-rag.md` - FDA regulatory analysis
 - `gov-rag.md` - Government document processing
 
-## Quick Reference
-
-### Scaffolding Commands
+## Scaffolding Commands
 
 ```bash
 # List examples
@@ -46,7 +163,7 @@ lf examples import quick_rag --name my-project
 cat examples/quick_rag/llamafarm.yaml
 ```
 
-### Example Locations
+## Example Locations
 
 Examples are located in the LlamaFarm repository:
 ```
@@ -122,6 +239,101 @@ llamafarm/examples/
    - OCR pipelines
    - Image processing
    - Document extraction
+
+## Example Details
+
+### quick_rag
+
+**Purpose:** Minimal viable RAG for learning
+
+**Configuration highlights:**
+- Single Ollama model (llama3.1:8b)
+- ChromaStore vector database
+- Basic similarity retrieval
+- Markdown parsing with heading extraction
+
+**Sample files:**
+- `neural_scaling.md` - AI research notes
+- `engineering_practices.md` - Software engineering tips
+
+**Requirements:**
+- Ollama installed and running
+- llama3.1:8b model pulled
+
+### fda_rag
+
+**Purpose:** Regulatory document analysis
+
+**Configuration highlights:**
+- PDF parsing with entity extraction
+- Semantic chunking (1200 chars / 150 overlap)
+- Organizations, dates, products extraction
+- Citation-aware system prompt
+
+**Sample files:**
+- Multiple FDA warning letters (PDF)
+- Regulatory correspondence
+
+**Requirements:**
+- Ollama or OpenAI for chat
+- PDF dependencies (PyPDF2, LlamaIndex)
+
+### gov_rag
+
+**Purpose:** Municipal and government documents
+
+**Configuration highlights:**
+- Large document handling
+- Hierarchy extraction (outline/headings)
+- Geospatial entity extraction (GPE, FAC, LOC)
+- Table extraction
+
+**Sample files:**
+- City ordinances
+- Planning documents
+- Municipal codes
+
+**Requirements:**
+- Sufficient disk space for large vectors
+- Consider Universal Runtime for faster embeddings
+
+### ocr_and_document
+
+**Purpose:** Scanned document processing
+
+**Configuration highlights:**
+- OCR pipeline integration
+- Image text extraction
+- Form field parsing
+- Multi-model with vision capability
+
+**Features:**
+- Surya OCR
+- PaddleOCR
+- Document extraction models
+
+**Requirements:**
+- Universal Runtime for OCR models
+- Additional ML dependencies
+
+### rag_pipeline
+
+**Purpose:** Advanced RAG showcase
+
+**Configuration highlights:**
+- Multiple vector databases
+- Hybrid search (semantic + keyword)
+- Cross-encoder reranking
+- Metadata filtering
+
+**Demonstrates:**
+- Database routing
+- Strategy composition
+- Performance optimization
+
+**Requirements:**
+- Multiple model endpoints
+- Larger resource allocation
 
 ## Key Configuration Patterns
 
