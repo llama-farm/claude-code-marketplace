@@ -147,7 +147,7 @@ curl "http://localhost:14345/v1/ml/buffers/server_metrics/data?offset=100&limit=
 
 ### Read Latest Rows
 
-Use a negative offset to read from the tail:
+Use the `last` query parameter to read the most recent rows:
 
 ```bash
 # Get the 10 most recent rows

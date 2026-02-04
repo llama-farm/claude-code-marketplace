@@ -48,7 +48,7 @@ curl -X POST http://localhost:14345/v1/classify \
   -d '{
     "text": "<user_text>",
     "labels": ["<label_1>", "<label_2>", "<label_3>"],
-    "multi_label": false
+    "multi_label": <true_or_false_from_user>
   }'
 ```
 
