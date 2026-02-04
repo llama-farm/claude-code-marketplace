@@ -1,12 +1,12 @@
 {
   "name": "llamafarm",
-  "description": "Complete toolkit for LlamaFarm AI applications: configuration generation, REST API integration, MCP server development, debugging, and deployment",
-  "version": "2.0.0",
+  "description": "Complete toolkit for LlamaFarm AI applications: configuration generation, REST API integration, MCP server development, debugging, deployment, anomaly detection, text classification, OCR, NER, and streaming ML",
+  "version": "3.0.0",
   "author": {
     "name": "LlamaFarm",
     "url": "https://github.com/llama-farm"
   },
   "repository": "https://github.com/llama-farm/claude-code-marketplace",
   "license": "Apache-2.0",
-  "keywords": ["ai", "rag", "llm", "mcp", "vector-database", "embeddings", "llamafarm"]
+  "keywords": ["ai", "rag", "llm", "mcp", "vector-database", "embeddings", "llamafarm", "anomaly-detection", "ml", "text-classification", "ocr", "ner", "streaming"]
 }
