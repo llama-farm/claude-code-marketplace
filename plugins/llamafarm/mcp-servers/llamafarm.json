@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/mcp-server.schema.json",
   "name": "llamafarm",
-  "description": "LlamaFarm project management, RAG queries, and AI chat. Provides tools for managing projects, querying vector databases, and interacting with AI models.",
+  "description": "LlamaFarm project management, RAG queries, AI chat, anomaly detection, text classification, OCR, NER, reranking, and streaming ML. Provides tools for managing projects, querying vector databases, interacting with AI models, and running ML workloads.",
   "transport": "http",
   "base_url": "http://localhost:14345/mcp",
   "metadata": {
@@ -53,6 +53,66 @@
       {
         "name": "process_dataset",
         "description": "Trigger dataset ingestion pipeline"
+      },
+      {
+        "name": "anomaly_fit",
+        "description": "Train an anomaly detection model on a dataset"
+      },
+      {
+        "name": "anomaly_detect",
+        "description": "Run anomaly detection on new data using a trained model"
+      },
+      {
+        "name": "anomaly_score",
+        "description": "Score data points for anomaly likelihood"
+      },
+      {
+        "name": "anomaly_models",
+        "description": "List trained anomaly detection models"
+      },
+      {
+        "name": "anomaly_stream",
+        "description": "Send data to a streaming anomaly detector"
+      },
+      {
+        "name": "anomaly_stream_status",
+        "description": "Get status of a streaming anomaly detector"
+      },
+      {
+        "name": "classify_text",
+        "description": "Zero-shot text classification with candidate labels"
+      },
+      {
+        "name": "classifier_fit",
+        "description": "Train a custom text classifier using SetFit"
+      },
+      {
+        "name": "classifier_predict",
+        "description": "Predict labels using a trained classifier"
+      },
+      {
+        "name": "classifier_models",
+        "description": "List trained text classification models"
+      },
+      {
+        "name": "ocr_extract",
+        "description": "Extract text from images and documents using OCR"
+      },
+      {
+        "name": "ner_extract",
+        "description": "Extract named entities from text"
+      },
+      {
+        "name": "rerank",
+        "description": "Rerank search results for relevance"
+      },
+      {
+        "name": "polars_buffer_create",
+        "description": "Create a Polars buffer for feature engineering"
+      },
+      {
+        "name": "polars_buffer_features",
+        "description": "Compute rolling features from a Polars buffer"
       }
     ]
   }
