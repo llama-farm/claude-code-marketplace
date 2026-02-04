@@ -1,4 +1,3 @@
-<<<<<<<< HEAD:plugins/llamafarm/skills/logs/SKILL.md
 ---
 description: View LlamaFarm service logs with filtering
 disable-model-invocation: true
@@ -7,8 +6,6 @@ allowed-tools:
 argument-hint: "[--service <name>] [--errors] [--since <time>]"
 ---
 
-========
->>>>>>>> origin/main:plugins/llamafarm/skills/services/logs.md
 # /llamafarm:logs - View Service Logs
 
 View and filter logs from LlamaFarm services for debugging and monitoring.
