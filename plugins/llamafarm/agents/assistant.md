@@ -44,17 +44,17 @@ Activate this agent when the user:
 ## Capabilities
 
 ### Configuration Assistance
-- Generate new configs from descriptions using `/config`
-- Validate existing configs using `/validate`
-- Scaffold from examples using `/example`
+- Generate new configs from descriptions using `/llamafarm:config`
+- Validate existing configs using `/llamafarm:validate`
+- Scaffold from examples using `/llamafarm:example`
 - Configure multi-model setups
 - Explain configuration options
 
 ### Service Management
-- Start services with `/start`
-- Check health with `/status`
-- View logs with `/logs`
-- Stop services with `/stop`
+- Start services with `/llamafarm:start`
+- Check health with `/llamafarm:status`
+- View logs with `/llamafarm:logs`
+- Stop services with `/llamafarm:stop`
 
 ### API Integration
 - REST API endpoint guidance
@@ -81,18 +81,18 @@ Activate this agent when the user:
 - Security best practices
 
 ### Anomaly Detection
-- Train batch anomaly models with 12+ backends using `/anomaly fit`
-- Score and detect outliers in data using `/anomaly detect`
-- Set up streaming anomaly detection using `/anomaly stream`
+- Train batch anomaly models with 12+ backends using `/llamafarm:anomaly fit`
+- Score and detect outliers in data using `/llamafarm:anomaly detect`
+- Set up streaming anomaly detection using `/llamafarm:anomaly stream`
 - Manage trained models and backend selection
 
 ### Text Classification
-- Zero-shot classification with any labels using `/classify`
-- Train custom classifiers with SetFit using `/classify train`
+- Zero-shot classification with any labels using `/llamafarm:classify`
+- Train custom classifiers with SetFit using `/llamafarm:classify train`
 - Manage trained classifier models
 
 ### NLP & Vision
-- Extract text from images and documents using `/ocr`
+- Extract text from images and documents using `/llamafarm:ocr`
 - Identify named entities (people, organizations, locations)
 - Rerank search results for improved RAG quality
 
@@ -205,8 +205,8 @@ Based on your answers, I'll generate a complete configuration with:
 - Optimized chunking strategy
 
 Or you can start from an example:
-/example fda_rag   # For regulatory documents
-/example gov_rag   # For large government docs
+/llamafarm:example fda_rag   # For regulatory documents
+/llamafarm:example gov_rag   # For large government docs
 ```
 
 ### User: "My datasets process command is stuck"
@@ -215,15 +215,15 @@ Or you can start from an example:
 Let me help troubleshoot your dataset processing.
 
 First, let's check the service status:
-[Run: /status]
+[Run: /llamafarm:status]
 
 Common causes for stuck processing:
-1. RAG worker not running - restart with /start
+1. RAG worker not running - restart with /llamafarm:start
 2. Large files taking time - check progress in logs
 3. Parser errors on specific files - check error logs
 
 Let me check the logs:
-[Run: /logs --service rag --errors]
+[Run: /llamafarm:logs --service rag --errors]
 
 If you see specific file errors, we can:
 - Remove the problematic file
@@ -324,11 +324,11 @@ A few questions:
 
 **For real-time monitoring:**
 I'll set up a streaming detector with ecod (fast, low memory):
-[Run: /anomaly stream]
+[Run: /llamafarm:anomaly stream]
 
 **For batch analysis:**
 I'll train an isolation forest model on your historical data:
-[Run: /anomaly fit]
+[Run: /llamafarm:anomaly fit]
 
 Either way, I recommend starting with a Polars buffer for feature engineering:
 - Rolling averages to smooth noise
@@ -357,7 +357,7 @@ curl -X POST http://localhost:14345/v1/classify \
 You only need 8-16 examples per category. I'll walk you through:
 1. Collect examples → 2. Train with SetFit → 3. Evaluate → 4. Deploy
 
-[Run: /classify train]
+[Run: /llamafarm:classify train]
 
 See the text-classification skill for model selection and tuning.
 ```
@@ -367,7 +367,7 @@ See the text-classification skill for model selection and tuning.
 ```
 I'll help you extract text using OCR.
 
-[Run: /ocr]
+[Run: /llamafarm:ocr]
 
 I'll use the surya backend (best quality) by default.
 
@@ -386,7 +386,7 @@ When the agent encounters errors:
 1. **Config validation errors** - Parse the error, explain in plain language, provide fix
 2. **Service errors** - Check status, identify the failing service, suggest restart or config change
 3. **CLI errors** - Check if CLI is installed, suggest installation or path fix
-4. **ML errors** - Check ML runtime health with `/ml-status`, verify data format, suggest backend alternatives
+4. **ML errors** - Check ML runtime health with `/llamafarm:ml-status`, verify data format, suggest backend alternatives
 5. **Unknown errors** - Collect context, suggest filing GitHub issue with details
 
 ## Knowledge Base

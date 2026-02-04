@@ -1,5 +1,6 @@
 ---
 description: OCR, Named Entity Recognition, and reranking. Extract text from images, identify entities in text, and rerank search results for relevance.
+user-invocable: false
 ---
 
 # ML NLP Skill

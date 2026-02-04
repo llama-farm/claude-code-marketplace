@@ -1,5 +1,11 @@
 ---
 description: Generate or modify LlamaFarm configuration from natural language description
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+argument-hint: "<description of project or changes>"
 ---
 
 # /llamafarm:config - LlamaFarm Configuration Generator

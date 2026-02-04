@@ -1,5 +1,9 @@
 ---
 description: Classify text using zero-shot or trained classification models
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+argument-hint: "[train|predict|models]"
 ---
 
 # /llamafarm:classify - Text Classification

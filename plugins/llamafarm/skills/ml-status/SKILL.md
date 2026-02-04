@@ -1,5 +1,9 @@
 ---
 description: Check health and status of all ML services and models
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+argument-hint: "[--component <anomaly|classify|buffers>]"
 ---
 
 # /llamafarm:ml-status - ML Services Health Check

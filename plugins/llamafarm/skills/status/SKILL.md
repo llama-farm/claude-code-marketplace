@@ -1,5 +1,9 @@
 ---
 description: Check LlamaFarm service health and component status
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+argument-hint: "[--json] [--component <name>]"
 ---
 
 # /llamafarm:status - Service Health Check

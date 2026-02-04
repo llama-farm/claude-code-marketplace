@@ -1,5 +1,6 @@
 ---
 description: End-to-end ML patterns and use cases. Complete pipelines for IoT monitoring, fraud detection, and document intelligence using LlamaFarm ML features.
+user-invocable: false
 ---
 
 # ML Use Cases Skill

@@ -1,5 +1,9 @@
 ---
 description: Detect anomalies in data using batch or streaming ML models
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+argument-hint: "<fit|detect|stream|backends|models>"
 ---
 
 # /llamafarm:anomaly - Anomaly Detection

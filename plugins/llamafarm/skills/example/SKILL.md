@@ -1,5 +1,10 @@
 ---
 description: Browse and scaffold from LlamaFarm example projects
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+argument-hint: "[example-name] [--name <project-name>] [--show]"
 ---
 
 # /llamafarm:example - Example Project Scaffolding

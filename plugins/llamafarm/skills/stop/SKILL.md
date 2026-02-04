@@ -1,5 +1,9 @@
 ---
 description: Stop LlamaFarm services gracefully
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+argument-hint: "[--force]"
 ---
 
 # /llamafarm:stop - Stop LlamaFarm Services

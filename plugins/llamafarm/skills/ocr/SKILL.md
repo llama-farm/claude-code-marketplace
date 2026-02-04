@@ -1,5 +1,9 @@
 ---
 description: Extract text from images and scanned documents using OCR
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+argument-hint: "[file_path] [--backend <name>] [--lang <codes>]"
 ---
 
 # /llamafarm:ocr - Optical Character Recognition

@@ -1,5 +1,6 @@
 ---
 description: Polars-based feature engineering buffers. Create sliding windows, compute rolling statistics, and generate lag features for ML pipelines.
+user-invocable: false
 ---
 
 # Polars Buffers Skill

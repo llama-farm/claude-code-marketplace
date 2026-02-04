@@ -1,5 +1,9 @@
 ---
 description: View LlamaFarm service logs with filtering
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+argument-hint: "[--service <name>] [--errors] [--since <time>]"
 ---
 
 # /llamafarm:logs - View Service Logs

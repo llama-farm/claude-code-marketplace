@@ -1,5 +1,10 @@
 ---
 description: Validate llamafarm.yaml configuration against schema
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
+argument-hint: "[path/to/config.yaml]"
 ---
 
 # /llamafarm:validate - LlamaFarm Configuration Validation

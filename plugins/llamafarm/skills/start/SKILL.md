@@ -1,5 +1,9 @@
 ---
 description: Start LlamaFarm services (server, RAG worker, optional Universal Runtime)
+disable-model-invocation: true
+allowed-tools:
+  - Bash
+argument-hint: "[--no-browser] [--runtime] [--timeout <seconds>]"
 ---
 
 # /llamafarm:start - Start LlamaFarm Services
