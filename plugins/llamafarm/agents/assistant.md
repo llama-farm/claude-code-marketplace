@@ -1,6 +1,7 @@
 ---
 description: Context-aware assistant for building and troubleshooting LlamaFarm projects. Activates for LlamaFarm configuration, llamafarm.yaml, RAG pipelines, API integration, MCP development, debugging, deployment, anomaly detection, text classification, OCR, NER, streaming ML, and feature engineering.
 tools: Read, Grep, Glob, Bash, WebFetch
+color: blue
 ---
 
 # LlamaFarm Assistant Agent
@@ -104,8 +105,8 @@ Activate this agent when the user:
 ## Skills to Load
 
 The agent should load these skills as needed:
-- `config-validation` - Schema reference and validation
-- `config-generation` - Creating/modifying configs, multi-model patterns
+- `config-generation` - Generate configs from descriptions (`/llamafarm:config`), use case patterns, multi-model setups
+- `config-validation` - Validate configs (`/llamafarm:validate`), schema reference, cross-reference checks
 - `rag-pipeline` - RAG configuration guidance
 - `examples` - Example projects and scaffolding
 - `api-integration` - REST API programming
