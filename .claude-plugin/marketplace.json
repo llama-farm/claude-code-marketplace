@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "llama-farm-marketplace",
-  "version": "2.0.1",
+  "version": "1.0.0",
   "description": "Comprehensive LlamaFarm plugins for building RAG and agentic AI applications with Claude Code",
   "owner": {
     "name": "LlamaFarm",
@@ -11,7 +11,7 @@
     {
       "name": "llamafarm",
       "description": "Complete toolkit for LlamaFarm AI applications: configuration generation, REST API integration, MCP server development, debugging, and deployment (Docker/K8s). Includes 7 commands, 8 skills, MCP server bundle, and intelligent assistant.",
-      "version": "2.0.2",
+      "version": "3.1.1",
       "source": "./plugins/llamafarm",
       "category": "development",
       "tags": ["ai", "rag", "llm", "mcp", "vector-database", "embeddings"]
