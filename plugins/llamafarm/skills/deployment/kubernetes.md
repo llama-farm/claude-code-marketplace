@@ -33,9 +33,9 @@ data:
       default_model: default
       models:
         - name: default
-          provider: ollama
-          model: llama3.1:8b
-          base_url: http://ollama:11434
+          provider: universal
+          model: unsloth/Qwen3-4B-GGUF:Q4_K_M
+          base_url: http://universal-runtime:11540/v1
 
     rag:
       default_database: main_db
@@ -91,8 +91,8 @@ spec:
             - secretRef:
                 name: llamafarm-secrets
           env:
-            - name: OLLAMA_HOST
-              value: "http://ollama:11434"
+            - name: UNIVERSAL_RUNTIME_URL
+              value: "http://universal-runtime:11540/v1"
             - name: CELERY_BROKER_URL
               value: "redis://redis:6379/0"
             - name: QDRANT_URL
@@ -185,8 +185,8 @@ spec:
           env:
             - name: CELERY_BROKER_URL
               value: "redis://redis:6379/0"
-            - name: OLLAMA_HOST
-              value: "http://ollama:11434"
+            - name: UNIVERSAL_RUNTIME_URL
+              value: "http://universal-runtime:11540/v1"
           volumeMounts:
             - name: config
               mountPath: /app/llamafarm.yaml

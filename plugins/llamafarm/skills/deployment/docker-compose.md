@@ -20,9 +20,9 @@ services:
       - llamafarm-cache:/app/.llamafarm
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - OLLAMA_HOST=http://ollama:11434
+      - UNIVERSAL_RUNTIME_URL=http://universal-runtime:11540/v1
     depends_on:
-      - ollama
+      - universal-runtime
       - redis
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:14345/health"]
@@ -40,17 +40,17 @@ services:
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - OLLAMA_HOST=http://ollama:11434
+      - UNIVERSAL_RUNTIME_URL=http://universal-runtime:11540/v1
     depends_on:
       - redis
-      - ollama
+      - universal-runtime
 
-  ollama:
-    image: ollama/ollama:latest
+  universal-runtime:
+    image: llamafarm/universal-runtime:latest
     ports:
-      - "11434:11434"
+      - "11540:11540"
     volumes:
-      - ollama-models:/root/.ollama
+      - universal-models:/root/.cache/huggingface
     deploy:
       resources:
         reservations:
@@ -80,7 +80,7 @@ services:
 
 volumes:
   llamafarm-cache:
-  ollama-models:
+  universal-models:
   redis-data:
   qdrant-data:
 ```
@@ -121,7 +121,7 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
 
       # Service URLs
-      - OLLAMA_HOST=http://ollama:11434
+      - UNIVERSAL_RUNTIME_URL=http://universal-runtime:11540/v1
       - QDRANT_URL=http://qdrant:6333
       - CELERY_BROKER_URL=redis://redis:6379/0
 
@@ -156,7 +156,7 @@ services:
         reservations:
           memory: 4G
 
-  ollama:
+  universal-runtime:
     deploy:
       resources:
         reservations:
@@ -178,13 +178,13 @@ volumes:
       o: bind
       device: /mnt/data/llamafarm
 
-  # Ollama models (can be large)
-  ollama-models:
+  # Universal Runtime models (can be large)
+  universal-models:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /mnt/data/ollama
+      device: /mnt/data/universal-runtime
 
   # Vector database
   qdrant-data:

@@ -45,7 +45,7 @@ Available LlamaFarm Examples
 quick_rag
   Minimal RAG setup for getting started quickly.
   Documents: 2 markdown files about AI/ML
-  Features: Basic similarity search, Ollama integration
+  Features: Basic similarity search, Universal Runtime integration
   Best for: Learning LlamaFarm basics
 
 fda_rag
@@ -132,7 +132,7 @@ Next Steps:
    lf chat "What are neural scaling laws?"
 
 Requirements:
-  - Ollama with llama3.1:8b: ollama pull llama3.1:8b
+  - Universal Runtime running on port 11540
 ```
 
 ### Step 4: Custom Project Name
@@ -203,7 +203,7 @@ llamafarm/examples/
    - Minimal configuration
    - 2 markdown files
    - Basic similarity search
-   - Ollama integration
+   - Universal Runtime integration
 
 2. **Learn the workflow:**
    ```bash
@@ -247,7 +247,7 @@ llamafarm/examples/
 **Purpose:** Minimal viable RAG for learning
 
 **Configuration highlights:**
-- Single Ollama model (llama3.1:8b)
+- Single Universal Runtime model (unsloth/Qwen3-4B-GGUF:Q4_K_M)
 - ChromaStore vector database
 - Basic similarity retrieval
 - Markdown parsing with heading extraction
@@ -257,8 +257,8 @@ llamafarm/examples/
 - `engineering_practices.md` - Software engineering tips
 
 **Requirements:**
-- Ollama installed and running
-- llama3.1:8b model pulled
+- Universal Runtime installed and running
+- Model auto-downloaded on first use
 
 ### fda_rag
 
@@ -275,7 +275,7 @@ llamafarm/examples/
 - Regulatory correspondence
 
 **Requirements:**
-- Ollama or OpenAI for chat
+- Universal Runtime or OpenAI for chat
 - PDF dependencies (PyPDF2, LlamaIndex)
 
 ### gov_rag
@@ -347,8 +347,8 @@ namespace: default
 runtime:
   models:
     - name: default
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       default: true
 
 prompts:

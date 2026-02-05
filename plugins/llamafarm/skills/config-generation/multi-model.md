@@ -18,9 +18,9 @@ runtime:
     # Primary model for most tasks
     - name: default
       description: General purpose assistant
-      provider: ollama
-      model: llama3.1:8b
-      base_url: http://localhost:11434
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
+      base_url: http://127.0.0.1:11540/v1
       default: true
       model_api_parameters:
         temperature: 0.7
@@ -29,9 +29,9 @@ runtime:
     # Fast model for simple queries
     - name: fast
       description: Quick responses for simple questions
-      provider: ollama
-      model: llama3.2:1b
-      base_url: http://localhost:11434
+      provider: universal
+      model: unsloth/Qwen3-1.7B-GGUF:Q4_K_M
+      base_url: http://127.0.0.1:11540/v1
       model_api_parameters:
         temperature: 0.5
         max_tokens: 512
@@ -85,9 +85,9 @@ response = requests.post(
 
 | Provider | Strengths | Best For |
 |----------|-----------|----------|
+| **Universal Runtime** | GGUF models, ML features | Development, RAG, specialized ML |
 | **Ollama** | Local, free, private | Development, privacy-sensitive |
 | **OpenAI** | High quality, reliable | Production, complex tasks |
-| **Universal Runtime** | ML features, embeddings | RAG, specialized ML |
 | **vLLM/Together** | Fast inference, self-hosted | High throughput |
 
 ---
@@ -102,16 +102,16 @@ runtime:
   models:
     # Tier 1: Instant responses
     - name: instant
-      provider: ollama
-      model: llama3.2:1b
+      provider: universal
+      model: unsloth/Qwen3-1.7B-GGUF:Q4_K_M
       model_api_parameters:
         temperature: 0.5
         max_tokens: 256
 
     # Tier 2: Balanced speed/quality
     - name: medium
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       default: true
       model_api_parameters:
         temperature: 0.7
@@ -119,8 +119,8 @@ runtime:
 
     # Tier 3: High quality, slower
     - name: powerful
-      provider: ollama
-      model: llama3.1:70b
+      provider: universal
+      model: unsloth/Qwen3-8B-GGUF:Q4_K_M
       model_api_parameters:
         temperature: 0.3
         max_tokens: 4096
@@ -134,9 +134,9 @@ runtime:
   models:
     # Local model - default for privacy and cost
     - name: local
-      provider: ollama
-      model: llama3.1:8b
-      base_url: http://localhost:11434
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
+      base_url: http://127.0.0.1:11540/v1
       default: true
 
     # Cloud model - for complex tasks
@@ -154,24 +154,24 @@ runtime:
   models:
     # General conversation
     - name: general
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       default: true
       model_api_parameters:
         temperature: 0.7
 
     # Code generation
     - name: coder
-      provider: ollama
-      model: codellama:13b
+      provider: universal
+      model: unsloth/Qwen3-8B-GGUF:Q4_K_M
       model_api_parameters:
         temperature: 0.2
         max_tokens: 4096
 
     # Creative writing
     - name: writer
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       model_api_parameters:
         temperature: 0.9
         max_tokens: 2048
@@ -205,16 +205,16 @@ runtime:
   models:
     # Assistant with file access
     - name: assistant
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       default: true
       mcp_servers:
         - filesystem
 
     # Data analyst with database access
     - name: data-analyst
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       mcp_servers:
         - database
 
@@ -231,6 +231,18 @@ runtime:
 ---
 
 ## Provider-Specific Configuration
+
+### Universal Runtime
+
+```yaml
+- name: universal-model
+  provider: universal
+  model: unsloth/Qwen3-4B-GGUF:Q4_K_M
+  base_url: http://127.0.0.1:11540/v1
+  model_api_parameters:
+    temperature: 0.7
+    max_tokens: 2048
+```
 
 ### Ollama
 
@@ -260,18 +272,6 @@ runtime:
     top_p: 1.0
     frequency_penalty: 0.0
     presence_penalty: 0.0
-```
-
-### Universal Runtime
-
-```yaml
-- name: universal-model
-  provider: universal
-  model: Qwen/Qwen2.5-7B-Instruct
-  base_url: http://localhost:11540
-  model_api_parameters:
-    temperature: 0.7
-    max_tokens: 2048
 ```
 
 ### OpenAI-Compatible (vLLM, Together, etc.)
@@ -359,8 +359,8 @@ runtime:
       prompt: analyst
 
     - name: coder
-      provider: ollama
-      model: codellama:13b
+      provider: universal
+      model: unsloth/Qwen3-8B-GGUF:Q4_K_M
       prompt: coder
 ```
 
@@ -382,13 +382,13 @@ runtime:
 
     # Fallback if OpenAI is down
     - name: fallback
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
 
     # Emergency fallback
     - name: emergency
-      provider: ollama
-      model: llama3.2:1b
+      provider: universal
+      model: unsloth/Qwen3-1.7B-GGUF:Q4_K_M
 ```
 
 Application logic can try models in order:

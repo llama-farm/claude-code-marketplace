@@ -9,9 +9,9 @@ runtime:
   models:
     - name: default
       description: "Multi-format document analysis"
-      provider: ollama
-      model: llama3.1:8b
-      base_url: http://localhost:11434
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
+      base_url: http://127.0.0.1:11540/v1
       default: true
       prompt_format: unstructured
 ```

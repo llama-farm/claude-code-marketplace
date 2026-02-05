@@ -29,8 +29,8 @@ mcp:
 runtime:
   models:
     - name: assistant
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       mcp_servers:
         - filesystem
         - database
@@ -70,15 +70,15 @@ runtime:
   models:
     # Research assistant - read-only file access
     - name: researcher
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       mcp_servers:
         - filesystem  # Can read files
 
     # Data analyst - database access only
     - name: analyst
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       mcp_servers:
         - database  # Can query data
 
@@ -93,8 +93,8 @@ runtime:
 
     # General chat - no tool access (safer for public)
     - name: chat
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       mcp_servers: []  # No MCP tools
 ```
 
@@ -152,8 +152,8 @@ runtime:
   models:
     # Development model - dev database only
     - name: dev-assistant
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       mcp_servers:
         - dev-database
 
@@ -268,14 +268,14 @@ runtime:
   models:
     # Fast model for simple queries
     - name: fast
-      provider: ollama
-      model: llama3.2:1b
+      provider: universal
+      model: unsloth/Qwen3-1.7B-GGUF:Q4_K_M
       mcp_servers: []  # No tools needed
 
     # Smart model for analysis
     - name: smart
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       mcp_servers:
         - filesystem
         - database

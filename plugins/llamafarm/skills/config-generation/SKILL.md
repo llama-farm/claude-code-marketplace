@@ -11,7 +11,7 @@ Generate LlamaFarm configurations from natural language descriptions using inter
 ```
 /llamafarm:config "I want to analyze FDA regulatory PDFs"
 /llamafarm:config "Add OCR support to my existing project"
-/llamafarm:config "Create a multi-model setup with Ollama and OpenAI"
+/llamafarm:config "Create a multi-model setup with Universal Runtime and OpenAI"
 ```
 
 ## When to Load
@@ -76,7 +76,7 @@ namespace: default
 runtime:
   models:
     - name: default
-      provider: <ollama|universal|openai>
+      provider: <universal|ollama|openai>
       model: <model-id>
       default: true
 

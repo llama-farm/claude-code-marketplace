@@ -28,9 +28,9 @@ runtime:
   models:
     - name: default
       description: Regulatory document analysis assistant
-      provider: ollama
-      model: llama3.1:8b
-      base_url: http://localhost:11434
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
+      base_url: http://127.0.0.1:11540/v1
       default: true
       model_api_parameters:
         temperature: 0.2  # Lower for factual accuracy

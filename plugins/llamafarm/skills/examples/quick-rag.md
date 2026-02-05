@@ -10,7 +10,7 @@ Minimal RAG setup for getting started with LlamaFarm quickly.
 
 **Features:**
 - Basic similarity search
-- Ollama integration
+- Universal Runtime integration
 - Markdown parsing
 - Heading extraction
 
@@ -28,9 +28,9 @@ runtime:
   models:
     - name: default
       description: General purpose chat model
-      provider: ollama
-      model: llama3.1:8b
-      base_url: http://localhost:11434
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
+      base_url: http://127.0.0.1:11540/v1
       default: true
       prompt_format: unstructured
       model_api_parameters:
@@ -157,9 +157,9 @@ Understanding scaling laws helps:
 ### Setup
 
 ```bash
-# 1. Ensure Ollama is running with the model
-ollama pull llama3.1:8b
-ollama serve
+# 1. Ensure Universal Runtime is running
+# Start the universal runtime server on port 11540
+# The model will be downloaded automatically on first use
 
 # 2. Scaffold the example
 /example quick_rag
@@ -253,21 +253,16 @@ embedding_strategies:
 ### "Model not found"
 
 ```bash
-# Pull the model
-ollama pull llama3.1:8b
-
-# Verify it's available
-ollama list
+# Verify Universal Runtime is running and the model is available
+curl http://127.0.0.1:11540/v1/models
 ```
 
 ### "Connection refused"
 
 ```bash
-# Start Ollama
-ollama serve
-
+# Start Universal Runtime
 # Check it's running
-curl http://localhost:11434/api/tags
+curl http://127.0.0.1:11540/v1/models
 ```
 
 ### "No relevant chunks found"

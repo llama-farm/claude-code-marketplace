@@ -25,7 +25,7 @@ Generate or modify LlamaFarm configurations from natural language descriptions.
 /llamafarm:config Add a second database for archived documents with hybrid search
 /llamafarm:config Change the chunking strategy to semantic with 1000 char chunks
 /llamafarm:config I have markdown docs and want keyword extraction
-/llamafarm:config Switch from Ollama to Universal Runtime
+/llamafarm:config Switch from Universal Runtime to Ollama
 /llamafarm:config Add entity extraction for organizations and dates
 ```
 
@@ -84,7 +84,7 @@ runtime:
   models:
     - name: default
       description: "<description-based>"
-      provider: <ollama|universal|openai>
+      provider: <universal|ollama|openai>
       model: <appropriate-model>
       base_url: <appropriate-url>
       default: true
@@ -175,8 +175,9 @@ Next Steps:
 runtime:
   models:
     - name: default
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      base_url: http://127.0.0.1:11540/v1
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       model_api_parameters:
         temperature: 0.2
 

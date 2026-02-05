@@ -1,6 +1,48 @@
 # Model Configuration Templates
 
-## Ollama (Local, Recommended)
+## Universal Runtime (Local, Recommended)
+
+### Standard GGUF
+```yaml
+runtime:
+  models:
+    - name: default
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
+      base_url: http://127.0.0.1:11540/v1
+      default: true
+      prompt_format: unstructured
+```
+
+### Larger Model
+```yaml
+runtime:
+  models:
+    - name: default
+      provider: universal
+      model: unsloth/Qwen3-8B-GGUF:Q4_K_M
+      base_url: http://127.0.0.1:11540/v1
+      default: true
+```
+
+### Multi-Model Setup
+```yaml
+runtime:
+  default_model: fast
+  models:
+    - name: fast
+      description: "Quick responses"
+      provider: universal
+      model: unsloth/Qwen3-1.7B-GGUF:Q4_K_M
+      base_url: http://127.0.0.1:11540/v1
+    - name: powerful
+      description: "Complex reasoning"
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
+      base_url: http://127.0.0.1:11540/v1
+```
+
+## Ollama (Local, Alternative)
 
 ### Standard
 ```yaml
@@ -25,47 +67,6 @@ runtime:
       default: true
       model_api_parameters:
         temperature: 0.1
-```
-
-### Multi-Model Setup
-```yaml
-runtime:
-  default_model: fast
-  models:
-    - name: fast
-      description: "Quick responses"
-      provider: ollama
-      model: gemma2:2b
-      base_url: http://localhost:11434
-    - name: powerful
-      description: "Complex reasoning"
-      provider: ollama
-      model: llama3.1:8b
-      base_url: http://localhost:11434
-```
-
-## Universal Runtime (Local, HuggingFace/GGUF)
-
-### Standard GGUF
-```yaml
-runtime:
-  models:
-    - name: default
-      provider: universal
-      model: unsloth/Qwen3-1.7B-GGUF:Q4_K_M
-      base_url: http://127.0.0.1:11540/v1
-      default: true
-      prompt_format: unstructured
-```
-
-### Larger Model
-```yaml
-runtime:
-  models:
-    - name: default
-      provider: universal
-      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
-      default: true
 ```
 
 ## Lemonade Runtime (NPU/GPU Acceleration)

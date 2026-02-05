@@ -16,8 +16,8 @@ Inline tools are defined in `llamafarm.yaml` under a model's `tools` array. They
 runtime:
   models:
     - name: assistant
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
       tool_call_strategy: native_api
       tools:
         - type: function

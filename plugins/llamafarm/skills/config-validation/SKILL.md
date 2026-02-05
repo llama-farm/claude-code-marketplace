@@ -80,7 +80,7 @@ Status: INVALID
 Errors found: 3
 
 1. [runtime.models.0.provider] Invalid provider "anthropic"
-   Valid providers: ollama, openai, universal, lemonade
+   Valid providers: universal, ollama, openai, lemonade
    Fix: Change provider to one of the valid options
 
 2. [rag.databases.0.name] Invalid name "Main-DB"
@@ -114,10 +114,10 @@ runtime:                 # Required, model configuration
 ### Provider Enum
 
 Valid values for `runtime.models[].provider`:
+- `universal` - LlamaFarm Universal Runtime
 - `openai` - OpenAI API or compatible endpoints
 - `ollama` - Ollama local models
 - `lemonade` - Lemonade runtime with NPU/GPU acceleration
-- `universal` - LlamaFarm Universal Runtime
 
 ### Core Naming Patterns
 
@@ -142,8 +142,8 @@ Fix: Add at least one model configuration:
   runtime:
     models:
       - name: default
-        provider: ollama
-        model: llama3.1:8b
+        provider: universal
+        model: unsloth/Qwen3-4B-GGUF:Q4_K_M
         default: true
 ```
 
@@ -151,7 +151,7 @@ Fix: Add at least one model configuration:
 
 ```
 Error: Invalid provider "anthropic"
-Valid: ollama, openai, universal, lemonade
+Valid: universal, ollama, openai, lemonade
 Fix: Change to a supported provider. For Anthropic models,
      use provider "openai" with the Anthropic-compatible endpoint.
 ```

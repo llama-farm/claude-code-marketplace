@@ -40,15 +40,15 @@ runtime:
   models:
     # Fast model for simple queries
     - name: fast
-      provider: ollama
-      model: llama3.2:1b  # Smaller = faster
+      provider: universal
+      model: unsloth/Qwen3-1.7B-GGUF:Q4_K_M  # Smaller = faster
       model_api_parameters:
         max_tokens: 512
 
     # Default for complex queries
     - name: default
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
 ```
 
 ### Enable Streaming
@@ -334,8 +334,8 @@ lf services logs | grep -E "ERROR|timeout"
 runtime:
   models:
     - name: default
-      provider: ollama
-      model: llama3.2:1b
+      provider: universal
+      model: unsloth/Qwen3-1.7B-GGUF:Q4_K_M
 
 databases:
   - type: ChromaStore
@@ -348,11 +348,11 @@ databases:
 runtime:
   models:
     - name: fast
-      provider: ollama
-      model: llama3.2:1b
+      provider: universal
+      model: unsloth/Qwen3-1.7B-GGUF:Q4_K_M
     - name: default
-      provider: ollama
-      model: llama3.1:8b
+      provider: universal
+      model: unsloth/Qwen3-4B-GGUF:Q4_K_M
 
 databases:
   - type: QdrantStore

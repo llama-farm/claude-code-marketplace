@@ -87,8 +87,8 @@ Services:
 Current Project: my-project (namespace: default)
 
 Models Available:
-  - default (ollama/llama3.1:8b) [DEFAULT]
-  - fast (ollama/llama3.2:1b)
+  - default (universal/unsloth/Qwen3-4B-GGUF:Q4_K_M) [DEFAULT]
+  - fast (universal/unsloth/Qwen3-1.7B-GGUF:Q4_K_M)
 
 Databases:
   - main_db (ChromaStore): 1,234 documents indexed
@@ -147,8 +147,8 @@ Issues Detected:
    - Fix: lf services start --worker
 
 2. Model Endpoint Unreachable
-   - Ollama not responding at localhost:11434
-   - Fix: ollama serve
+   - Universal Runtime not responding at 127.0.0.1:11540
+   - Fix: Start Universal Runtime on port 11540
 
 Recommendations:
 - Run /llamafarm:logs to see error details
@@ -176,7 +176,7 @@ lf services status --json
     "namespace": "default"
   },
   "models": [
-    {"name": "default", "provider": "ollama", "model": "llama3.1:8b"}
+    {"name": "default", "provider": "universal", "model": "unsloth/Qwen3-4B-GGUF:Q4_K_M"}
   ],
   "databases": [
     {"name": "main_db", "type": "ChromaStore", "document_count": 1234}
