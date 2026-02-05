@@ -15,7 +15,7 @@ Troubleshoot LlamaFarm service startup and connectivity problems.
 
 ```bash
 # Check if port is in use
-lsof -i :8000
+lsof -i :14345
 
 # Check for existing processes
 ps aux | grep -E "llamafarm|uvicorn"
@@ -29,7 +29,7 @@ lf services logs --service server | head -50
 1. **Port in use by another process:**
 ```bash
 # Kill the process using the port
-kill $(lsof -t -i:8000)
+kill $(lsof -t -i:14345)
 
 # Or use different port
 LF_SERVER_PORT=8001 lf start

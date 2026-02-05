@@ -13,7 +13,7 @@ services:
   llamafarm:
     image: llamafarm/llamafarm:latest
     ports:
-      - "8000:8000"
+      - "14345:14345"
     volumes:
       - ./llamafarm.yaml:/app/llamafarm.yaml:ro
       - ./data:/app/data

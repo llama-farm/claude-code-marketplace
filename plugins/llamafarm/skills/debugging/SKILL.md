@@ -60,7 +60,7 @@ lf services status
 curl http://localhost:14345/health | jq .
 
 # Check ports
-lsof -i :8000
+lsof -i :14345
 lsof -i :11434
 ```
 

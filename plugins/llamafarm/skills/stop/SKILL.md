@@ -54,7 +54,7 @@ This gracefully stops:
 
 ```bash
 # Check that port 8000 is freed
-lsof -i :8000 || echo "PORT_FREED"
+lsof -i :14345 || echo "PORT_FREED"
 
 # Verify no LlamaFarm processes
 pgrep -f "llamafarm" || echo "NO_PROCESSES"
